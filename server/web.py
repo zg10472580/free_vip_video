@@ -23,12 +23,15 @@ app.after_request(after_request)
 @app.route("/api",methods=["GET"])
 def api():
     return [
-				"https://jsap.attakids.com/?url=",
-				"https://jx.bozrc.com:4433/player/?url=",
-				"https://lecurl.cn/?url=",
-				"http://17kyun.com/api.php?url=",
-				"https://z1.m1907.cn/?jx="
-			]
+        # "https://jsap.attakids.com/?url=",
+        "https://vip.bljiex.com/?v=",
+        "https://jx.bozrc.com:4433/player/?url=",
+        "https://playmv.vip/?url=",
+        "https://okjx.cc/?url=",
+        "https://jx.xmflv.com/?url=",
+        "https://www.pangujiexi.cc/jiexi.php?url=",
+    ]
+
 
 @app.route("/iqy",methods=["GET"])
 def aqi():
