@@ -15,8 +15,9 @@
 
 # 演示站
 
-[local  ：  http://1localhost:8889](http://1localhost:8889)
+[local  ：  http://1ocalhost:8889](http://1ocalhost:8889)
 
+[server  ：  http://110.42.177.170:8889](http://110.42.177.170:8889)
 [pages ： https://lfj-free-vip.pages.dev/](https://lfj-free-vip.pages.dev/)
 
 # 配置server api
