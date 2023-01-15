@@ -1,7 +1,7 @@
 <template>
 	<view>
 
-
+		
 		<iframe allowfullscreen :src="playConf.playUrl" class="iframeStyle"></iframe>
 		<!-- 		<web-view  allow="fullscreen" :fullscreen="false" src="https://jx.bozrc.com:4433/player/?url=https://m.iqiyi.com/v_19rwfig6cs.html"></web-view> -->
 
@@ -90,7 +90,7 @@
 					key: 'playConf',
 					data: this.playConf
 				});
-				
+
 				this.playConf.playUrl = playUrl;
 			}
 		}
@@ -110,7 +110,7 @@
 
 	.iframeStyle {
 		width: 100%;
-		height: 350px;
+		height: 25%;
 		background: #000;
 		border: 0px;
 	}
@@ -132,17 +132,32 @@
 		padding: 10px 2%;
 		transition: all 0.5s;
 		color: #fff;
+		height: auto;
 		border-radius: 5px;
 		background: #000;
 		box-shadow: 0 0 10px #03e9f4, 0 0 20px #03e9f4, 0 0 20px #03e9f4, 0 0 10px #03e9f4;
 		margin: 15px;
 	}
 
+
 	.catalogue {
+		position: fixed;
+		height: 52%;
+
+		overflow-y: scroll;
+		overflow-x: hidden;
+
+		justify-content: center;
 		display: flex;
 		flex-wrap: wrap;
-		justify-content: center;
 	}
+
+	// .catalogue {
+	// 	display: flex;
+	// 	flex-wrap: wrap;
+
+	// 	justify-content: center;
+	// }
 
 	.active {
 		background: red;

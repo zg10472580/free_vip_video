@@ -10,7 +10,7 @@
 			console.log('App Hide')
 		},
 		globalData: {
-			domain: 'http://localhost:8889',
+			domain: 'http://110.42.177.170:8889',
 			// 优先使用server的接口
 			
 			interface: [
