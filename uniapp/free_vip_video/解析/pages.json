@@ -1,16 +1,23 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
-			"path": "pages/index"
+			"path": "pages/index",
+			"style": {
+				"navigationStyle": "custom"
+			}
 		}
 	    ,{
-            "path" : "pages/play"
-            
+            "path" : "pages/play",
+            "style": {
+				"navigationBarTitleText": "详细界面"
+            }
         }
     ],
 	"globalStyle": {
 		"navigationBarTitleText": "老飞机解析站",
-		"navigationStyle": "custom"
+		"navigationBarTextStyle": "black",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
 	},
 	"uniIdRouter": {}
 }
