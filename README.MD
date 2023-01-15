@@ -7,13 +7,21 @@
 ```
 /root/
 |---- server                                   后端flask根目录
-      |---- h5								   uniapp打包的h5程序（测试多主机访问）
+      |---- h5					     uniapp打包的h5程序（测试多主机访问）
 |---- uniapp/free_vip_video                    uniapp代码根目录
-      |---- App.vue							   主要配置的文件
+      |---- App.vue				     主要配置的文件
       |---- ***
 ```
 
+# 演示站
 
+[local  ：  http://1localhost:8889](http://1localhost:8889)
+
+[pages ： https://lfj-free-vip.pages.dev/](https://lfj-free-vip.pages.dev/)
+
+# 配置server api
+
+![image-20230115184521294](image/image-20230115184521294.png)
 
 - 主页
 
