@@ -21,6 +21,8 @@
 
 [pages ： https://lfj-free-vip.pages.dev/](https://lfj-free-vip.pages.dev/)
 
+[pages ： https://zg10472580.github.io/free_vip_video/server/h5/)
+
 # 配置server api
 
 ![image-20230115184521294](image/image-20230115184521294.png)
