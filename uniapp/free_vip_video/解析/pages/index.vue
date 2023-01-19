@@ -23,17 +23,10 @@
 		onLoad() {
 
 			// 获取解析接口
-			uni.request({
-				url: getApp().globalData.domain + "/api",
-				method: 'GET',
-				data: {},
-				success: res => {
-					console.log(res)
-					getApp().globalData.interface = res.data;
-				},
-				fail: () => {},
-				complete: () => {}
-			});
+			this.getServerApi();
+
+
+
 
 		},
 		methods: {
@@ -181,8 +174,8 @@
 								this.save();
 							}
 						})
-					}else{
-							this.nopull(param.url);
+					} else {
+						this.nopull(param.url);
 					}
 				}).catch(err => {
 					uni.showToast({

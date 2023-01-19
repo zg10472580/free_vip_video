@@ -59,9 +59,48 @@
 					this.playConf = res.data;
 				}
 			});
+			this.getServerApi();
 			// console.log(option , this.videoList)
 		},
 		methods: {
+			getServerApi(){
+				let getDate = function () {
+					let date = new Date(Date.parse(new Date()));
+					let datakey = date.getMonth() + "" + date.getDate();
+					return datakey;
+				}
+				let that = this;
+				let getApi = function() {
+					that.$jsonp(getApp().globalData.domain + "/api").then((res) => {
+						that.interface = res;
+						uni.setStorage({
+							key: 'api',
+							data: {
+								date: getDate(),
+								api: res
+							}
+						});
+					}).catch(err => {
+					})
+				
+				}
+				uni.getStorage({
+					key: 'api',
+					success: res => {
+						if (res.data.date === getDate()) {
+							this.interface = res.data.api;
+						} else {
+							getApi();
+						}
+						console.log(this.interface);
+					},
+					fail: (err) => {
+						getApi();
+					}
+				});
+			},
+			
+			
 			radioChange: function(evt) {
 				this.playConf.interfaceIndex = evt.detail.value;
 
@@ -130,20 +169,22 @@
 
 	.item {
 		padding: 10px 2%;
+		// min-width: auto;
 		transition: all 0.5s;
 		color: #fff;
 		height: auto;
 		border-radius: 5px;
 		background: #000;
-		box-shadow: 0 0 10px #03e9f4, 0 0 20px #03e9f4, 0 0 20px #03e9f4, 0 0 10px #03e9f4;
+		// box-shadow: 0 0 10px #03e9f4, 0 0 20px #03e9f4, 0 0 20px #03e9f4, 0 0 10px #03e9f4;
+		box-shadow: 0 0 10px #ff0000, 0 0 20px #5600ff, 0 0 20px #05ff0d, 0 0 10px #ffffff;
 		margin: 15px;
 	}
 
 
 	.catalogue {
 		position: fixed;
-		height: 52%;
-
+		max-height: 52%;
+		width: 100%;
 		overflow-y: scroll;
 		overflow-x: hidden;
 

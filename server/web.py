@@ -6,43 +6,39 @@
 import re
 import json
 import requests
-from flask import Flask , request , render_template
+from flask import Flask, request, render_template
 
-app = Flask(__name__,template_folder='h5' , static_folder="h5/static")
+app = Flask(__name__, template_folder='h5', static_folder="h5/static")
 app.config.update(DEBUG=True)
 
 
-# 跨域支持
-def after_request(resp):
-    resp.headers['Access-Control-Allow-Origin'] = '*'
-    return resp
-
-app.after_request(after_request)
-
-
-@app.route("/api",methods=["GET"])
+@app.route("/api", methods=["GET"])
 def api():
-    return [
+    callback = request.args.get('callback')
+
+    api = [
         # "https://jsap.attakids.com/?url=",
-        "https://vip.bljiex.com/?v=",
         "https://jx.bozrc.com:4433/player/?url=",
-        "https://playmv.vip/?url=",
         "https://okjx.cc/?url=",
         "https://jx.xmflv.com/?url=",
         "https://www.pangujiexi.cc/jiexi.php?url=",
     ]
 
+    return callback + '(' + json.dumps(api) + ')'
 
-@app.route("/iqy",methods=["GET"])
+
+
+@app.route("/iqy", methods=["GET"])
 def aqi():
     url = request.args.get("url")
     # 获取回调函数名称
     callback = request.args.get('callback')
     if url is None:
         return
-    response = requests.get(url, headers={"user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"}).text
+    response = requests.get(url, headers={
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"}).text
 
-    albumId = re.findall("""param\['albumid'\] = "(.*?)\"""" , response)
+    albumId = re.findall("""param\['albumid'\] = "(.*?)\"""", response)
     result = {}
     if albumId:
         result["lfj_albumId"] = albumId[0]
@@ -51,6 +47,7 @@ def aqi():
         if res:
             result["lfj_albumId"] = json.loads(res[0])['albumid']
     return callback + '(' + json.dumps(result) + ')'
+
 
 @app.route('/')
 def index():
@@ -62,4 +59,3 @@ if __name__ == '__main__':
         host='0.0.0.0',
         port=8889,
     )
-

@@ -20,6 +20,7 @@
 				"http://17kyun.com/api.php?url=",
 				"https://z1.m1907.cn/?jx="
 			]
+					
 		}
 	}
 </script>
